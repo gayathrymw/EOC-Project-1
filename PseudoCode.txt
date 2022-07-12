@@ -1,0 +1,33 @@
+// for(i = 0 ; i < 8 ; i++)
+//{
+//	max = RAM[i]
+// 	for(j = 30 ; j < 38 ; j ++)
+//     {
+//	    if (max == 0)
+//            {skip the loop}
+//	    if (max - RAM[j] > 0)
+//            {swap the values}
+//      }
+//}
+
+LOOP_FROM:
+	max = RAM[i]
+	if (i == 8) goto END
+	i = i + 1
+	j = 30
+
+LOOP_TO:
+	if ((max - j) > 0) goto CHANGE
+	if (max == 0) goto LOOP_FROM
+	if (j == 37) goto END
+	j = j + 1
+
+CHANGE:
+	temp = j
+	j = max
+	max = temp
+	goto LOOP_TO
+
+ END:	
+	goto END
+
